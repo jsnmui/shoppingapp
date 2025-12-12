@@ -2,7 +2,7 @@
 # Online Shopping Application – Java Full Stack Project
 
 ## Project Overview
-This project is an end-to-end online shopping platform for **Super Duper Mart™**, designed to manage product listings, orders, and user management.  
+This project is an end-to-end online shopping platform designed to manage product listings, orders, and user management.  
 It consists of an **Angular 14 frontend** and a **Spring Boot backend** split into two services: **Authentication Service** and **Content Service**.  
 
 The application supports both **users (buyers)** and **admins (sellers)** with secure authentication, order management, and product management.
