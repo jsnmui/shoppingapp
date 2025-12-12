@@ -66,36 +66,7 @@ public class ProductController {
             return ResponseEntity.ok(buyerViews);
         }
     }
-//
-//    // Only for Admin
-//    @PreAuthorize("hasAuthority('ADMIN')")
-//    @GetMapping("/admin/all")
-//    public ResponseEntity<?> getAllProductsForAdmin() {
-//        List<Product> products = productService.getAllProducts();
-//        List<ProductSellerView> sellerViews = products.stream()
-//                .map(p -> new ProductSellerView(
-//                        p.getProductId(),
-//                        p.getName(),
-//                        p.getRetailPrice()))
-//                .collect(Collectors.toList());
-//
-//        return ResponseEntity.ok(sellerViews);
-//    }
-//
-//    // Only for User
-//    @PreAuthorize("hasAuthority('USER')")
-//    @GetMapping("/user/all")
-//    public ResponseEntity<?> getAllProductsForUser() {
-//        List<Product> products = productService.getAllInStockProducts();
-//        List<ProductUserView> buyerViews = products.stream()
-//                .map(p -> new ProductUserView(
-//                        p.getProductId(),
-//                        p.getName(),
-//                        p.getRetailPrice()))
-//                .collect(Collectors.toList());
-//
-//        return ResponseEntity.ok(buyerViews);
-//    }
+
 
 
     @GetMapping("/{id}")
@@ -147,49 +118,7 @@ public class ProductController {
         return orderService.getMostFrequentProducts(count);
     }
 
-//    @PatchMapping("/{id}")
-//    public ResponseEntity<?> updateProductAsAdmin(
-//            @PathVariable Long id,
-//            @Valid @RequestBody ProductUpdateRequest updateRequest) {
-//
-//
-//        String username = SecurityContextHolder.getContext().getAuthentication().getName();
-//        User user = userService.getUserByUsername(username);
-//
-//        // Only admin can access
-//        if (user.getRole() != 1) {
-//            return ResponseEntity.status(HttpStatus.FORBIDDEN).body("Only admin can update product details.");
-//        }
-//
-//
-//        Product product = productService.getProductById(id);
-//        if (product == null) {
-//            return ResponseEntity.notFound().build();
-//        }
-//
-//
-//
-//        if (updateRequest.getName() != null) {
-//            product.setName(updateRequest.getName());
-//        }
-//        if (updateRequest.getWholesalePrice() != null) {
-//            product.setWholesalePrice(updateRequest.getWholesalePrice());
-//        }
-//        if (updateRequest.getRetailPrice() != null) {
-//            product.setRetailPrice(updateRequest.getRetailPrice());
-//        }
-//        if (updateRequest.getDescription() != null) {
-//            product.setDescription(updateRequest.getDescription());
-//        }
-//        if (updateRequest.getQuantity() != null) {
-//            product.setQuantity(updateRequest.getQuantity());
-//        }
-//
-//        productService.updateProduct(product); // persist the changes
-//
-//        return ResponseEntity.ok("Product updated successfully.");
-//    }
-//
+
 
     @PatchMapping("/{id}")
     public ResponseEntity<?> updateProductAsAdmin(
@@ -232,28 +161,7 @@ public class ProductController {
         return ResponseEntity.ok(product);
     }
 
-//    @PostMapping
-//    public ResponseEntity<String> addProduct(@RequestBody @Valid ProductAddRequest request) {
-//        String username = SecurityContextHolder.getContext().getAuthentication().getName();
-//        User user = userService.getUserByUsername(username);
-//
-//        // Only admin can access
-//        if (user.getRole() != 1) {
-//            return ResponseEntity.status(HttpStatus.FORBIDDEN).body("Only sellers can add products");
-//        }
-//
-//
-//        Product product = new Product();
-//        product.setName(request.getName());
-//        product.setDescription(request.getDescription());
-//        product.setWholesalePrice(request.getWholesalePrice());
-//        product.setRetailPrice(request.getRetailPrice());
-//        product.setQuantity(request.getQuantity());
-//
-//        productService.saveProduct(product);
-//
-//        return ResponseEntity.status(HttpStatus.CREATED).body("Product added successfully");
-//    }
+
 
 
     @PostMapping

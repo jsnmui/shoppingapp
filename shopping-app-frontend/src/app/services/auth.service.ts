@@ -14,7 +14,7 @@ interface LoginResponse {
 })
 export class AuthService {
 
-   private baseUrl = 'http://localhost:8888';
+   private baseUrl = 'https://shoppingapp-auth.onrender.com';
 
   constructor(private http: HttpClient, private router: Router, private cartService: CartService  ) {}
 

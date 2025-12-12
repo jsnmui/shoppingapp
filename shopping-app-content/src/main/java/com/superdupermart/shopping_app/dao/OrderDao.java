@@ -20,20 +20,7 @@ public class OrderDao extends AbstractHibernateDao<Order> {
             setClazz(Order.class);
         }
 
-//        public List<Order> findOrdersByUserId(Long userId) {
-//            Session session = getCurrentSession();
-//            CriteriaBuilder cb = session.getCriteriaBuilder();
-//            CriteriaQuery<Order> query = cb.createQuery(Order.class);
-//            Root<Order> root = query.from(Order.class);
-//            // Join fetch to load items eagerly
-//            root.fetch("items", JoinType.INNER);
-//
-//            query.select(root)
-//                    .where(cb.equal(root.get("user").get("userId"), userId))
-//                    .distinct(true);
-//
-//            return session.createQuery(query).getResultList();
-//        }
+
 
     public List<Order> findOrdersByUserId(Long userId) {
         Session session = getCurrentSession();
@@ -120,30 +107,7 @@ public class OrderDao extends AbstractHibernateDao<Order> {
     }
 
 
-//    public List<Product> findMostFrequentProductsByUserId(Long userId, int limit) {
-//        Session session = getCurrentSession();
-//        CriteriaBuilder cb = session.getCriteriaBuilder();
-//        CriteriaQuery<Object[]> query = cb.createQuery(Object[].class);
-//
-//        Root<OrderItem> itemRoot = query.from(OrderItem.class);
-//        Join<OrderItem, Order> orderJoin = itemRoot.join("order");
-//        Join<OrderItem, Product> productJoin = itemRoot.join("product");
-//
-//        query.multiselect(productJoin, cb.count(itemRoot.get("itemId")))
-//                .where(cb.and(
-//                        cb.equal(orderJoin.get("user").get("userId"), userId),
-//                        cb.notEqual(orderJoin.get("orderStatus"), "Canceled")
-//                ))
-//                .groupBy(productJoin)
-//                .orderBy(cb.desc(cb.count(itemRoot.get("itemId"))), cb.asc(productJoin.get("productId")));
-//
-//        return session.createQuery(query)
-//                .setMaxResults(limit)
-//                .getResultList()
-//                .stream()
-//                .map(result -> (Product) result[0])
-//                .toList();
-//    }
+
 
 
 

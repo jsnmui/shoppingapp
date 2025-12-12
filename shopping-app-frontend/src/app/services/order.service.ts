@@ -7,7 +7,7 @@ import {ProductSummary} from '../components/product-summary/product-summary.mode
 
 @Injectable({ providedIn: 'root' })
 export class OrderService {
-  private baseUrl = 'http://localhost:8080';
+  private baseUrl = 'https://shoppingapp-content.onrender.com';
 
   constructor(private http: HttpClient) {}
 

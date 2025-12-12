@@ -62,7 +62,7 @@ export class ShoppingCartComponent implements OnInit {
     }))
   };
 
-  this.http.post('http://localhost:8080/orders', orderPayload).subscribe({
+  this.http.post('https://shoppingapp-content.onrender.com/orders', orderPayload).subscribe({
     next: (response: any) => {
       alert(response.message || 'Order placed successfully!');
       this.cartService.clearCart();

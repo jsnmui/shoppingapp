@@ -5,7 +5,7 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class WatchlistService {
-  private baseUrl = 'http://localhost:8080/watchlist';
+  private baseUrl = 'https://shoppingapp-content.onrender.com/watchlist';
 
   constructor(private http: HttpClient) {}
 

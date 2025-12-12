@@ -10,7 +10,7 @@ import { PopularProduct } from '../components/popular-products/popular-product.m
 })
 export class ProductService {
 
-  private baseUrl = 'http://localhost:8080';   
+  private baseUrl = 'https://shoppingapp-content.onrender.com';   
 
   constructor(private http: HttpClient) { }
 
