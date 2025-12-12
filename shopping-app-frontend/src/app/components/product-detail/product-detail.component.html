@@ -1,0 +1,13 @@
+<div class="container mt-4" *ngIf="product">
+  <h2>{{ product.name }}</h2>
+  <p><strong>Description:</strong> {{ product.description }}</p>
+  <p><strong>Price:</strong> ${{ product.retailPrice }}</p>
+  <button class="btn btn-secondary"
+        *ngIf="orderId"
+        [routerLink]="['/order', orderId]"
+        [queryParams]="{ from: from }">
+  Back to Order Details
+</button>
+  <button class="btn btn-secondary" (click)="goBack()">Back to Orders</button>
+</div>
+

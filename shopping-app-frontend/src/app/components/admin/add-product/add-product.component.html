@@ -1,0 +1,55 @@
+<div class="container mt-4">
+  <h2>Add New Product</h2>
+
+  <form [formGroup]="productForm" (ngSubmit)="onSubmit()">
+
+    
+    <div class="mb-3">
+      <label for="name" class="form-label">Product Name</label>
+      <input id="name" type="text" class="form-control" formControlName="name">
+      <div class="text-danger" *ngIf="productForm.get('name')?.touched && productForm.get('name')?.invalid">
+        Product name is required.
+      </div>
+    </div>
+
+    <div class="mb-3">
+      <label for="description" class="form-label">Description</label>
+      <textarea id="description" class="form-control" formControlName="description"></textarea>
+    </div>
+
+    
+    <div class="mb-3">
+      <label for="wholesalePrice" class="form-label">Wholesale Price</label>
+      <input id="wholesalePrice" type="number" class="form-control" formControlName="wholesalePrice">
+      <div class="text-danger" *ngIf="productForm.get('wholesalePrice')?.touched && productForm.get('wholesalePrice')?.invalid">
+        <div *ngIf="productForm.get('wholesalePrice')?.errors?.['required']">Wholesale price is required.</div>
+        <div *ngIf="productForm.get('wholesalePrice')?.errors?.['min']">Price cannot be negative.</div>
+      </div>
+    </div>
+
+    <div class="mb-3">
+      <label for="retailPrice" class="form-label">Retail Price</label>
+      <input id="retailPrice" type="number" class="form-control" formControlName="retailPrice">
+      <div class="text-danger" *ngIf="productForm.get('retailPrice')?.touched && productForm.get('retailPrice')?.invalid">
+        <div *ngIf="productForm.get('retailPrice')?.errors?.['required']">Retail price is required.</div>
+        <div *ngIf="productForm.get('retailPrice')?.errors?.['min']">Price cannot be negative.</div>
+      </div>
+    </div>
+
+    
+    <div class="mb-3">
+      <label for="quantity" class="form-label">Quantity</label>
+      <input id="quantity" type="number" class="form-control" formControlName="quantity">
+      <div class="text-danger" *ngIf="productForm.get('quantity')?.touched && productForm.get('quantity')?.invalid">
+        <div *ngIf="productForm.get('quantity')?.errors?.['required']">Quantity is required.</div>
+        <div *ngIf="productForm.get('quantity')?.errors?.['min']">Quantity must be at least 1.</div>
+      </div>
+    </div>
+
+   
+    <button type="submit" class="btn btn-primary" [disabled]="productForm.invalid">Add Product</button>
+    <button type="button" class="btn btn-secondary ms-2" routerLink="/admin-products">Cancel</button>
+
+  </form>
+</div>
+

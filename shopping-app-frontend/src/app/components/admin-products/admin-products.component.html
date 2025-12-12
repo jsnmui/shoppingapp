@@ -1,0 +1,46 @@
+<div class="container mt-4">
+  <h2>Admin Product Management Page</h2>
+  <div class="d-flex justify-content-end mb-3">
+  <button mat-raised-button color="primary" routerLink="/admin/add-product">
+    Add New Product
+  </button>
+</div>
+  <div class="table-container">
+  <table mat-table [dataSource]="products" class="mat-elevation-z8 full-width">
+
+    <!-- Product ID -->
+    <ng-container matColumnDef="productId">
+      <th mat-header-cell *matHeaderCellDef>Product ID</th>
+      <td mat-cell *matCellDef="let product">{{ product.productId }}</td>
+    </ng-container>
+
+    <!-- Name -->
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef>Name</th>
+      <td mat-cell *matCellDef="let product">{{ product.name }}</td>
+    </ng-container>
+
+    <!-- Retail Price -->
+    <ng-container matColumnDef="retailPrice">
+      <th mat-header-cell *matHeaderCellDef>Retail Price</th>
+      <td mat-cell *matCellDef="let product">${{ product.retailPrice }}</td>
+    </ng-container>
+
+
+    <!-- Actions -->
+    <ng-container matColumnDef="actions">
+      <th mat-header-cell *matHeaderCellDef>Actions</th>
+      <td mat-cell *matCellDef="let product">
+        <button mat-button color="primary" (click)="viewProduct(product.productId)">View</button>
+        <button mat-button color="primary" [routerLink]="['/admin/edit-product', product.productId]">
+      Edit
+    </button>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+  </div>
+</div>
+

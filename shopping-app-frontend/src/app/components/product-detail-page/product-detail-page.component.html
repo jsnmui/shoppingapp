@@ -1,0 +1,12 @@
+<div class="container mt-4" *ngIf="product">
+  <h2>{{ product.name }}</h2>
+  <p><strong>Description:</strong> {{ product.description }}</p>
+  <p><strong>Retail Price:</strong> ${{ product.retailPrice }}</p>
+
+  <div *ngIf="isAdmin">
+    <p><strong>Wholesale Price:</strong> ${{ product.wholesalePrice }}</p>
+    <p><strong>Quantity In Stock:</strong> {{ product.quantity }}</p>
+  </div>
+
+  <button class="btn btn-secondary" (click)="goBack()">Back to Products</button>
+</div>

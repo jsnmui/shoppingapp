@@ -1,0 +1,24 @@
+<div class="container mt-4">
+  <h2>Your Watchlist</h2>
+  <table class="table table-bordered" *ngIf="watchlist.length > 0">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Retail Price</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of watchlist">
+        <td>{{ item.name }}</td>
+        <td>${{ item.retailPrice }}</td>
+        <td>
+          <button class="btn btn-danger btn-sm" (click)="removeFromWatchlist(item.productId)">
+            Remove
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <div *ngIf="watchlist.length === 0">Your watchlist is empty.</div>
+</div>

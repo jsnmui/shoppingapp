@@ -1,0 +1,9 @@
+.table-container {
+  width: 100%;
+  max-width: 1000px; /* Optional: set to desired max width */
+  margin: auto;       /* Center it */
+}
+
+.full-width {
+  width: 100%;
+}

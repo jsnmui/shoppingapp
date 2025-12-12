@@ -1,0 +1,58 @@
+<div class="container mt-4">
+    <div class="d-flex justify-content-end mb-3">
+  <button mat-stroked-button color="primary" routerLink="/cart">
+     View Cart
+  </button>
+  &nbsp;
+  <button mat-stroked-button color="accent" routerLink="/watchlist">
+     View Watchlist
+  </button>
+</div>
+
+  <h2>All Products</h2>
+  <div class="table-container">
+  <table mat-table [dataSource]="products" class="mat-elevation-z8 full-width" *ngIf="products.length">
+
+    <!-- Name -->
+    <ng-container matColumnDef="productId">
+      <th mat-header-cell *matHeaderCellDef>Id</th>
+      <td mat-cell *matCellDef="let product">{{ product.productId }}</td>
+    </ng-container>
+
+    <!-- Description -->
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef>Name</th>
+      <td mat-cell *matCellDef="let product">{{ product.name }}</td>
+    </ng-container>
+
+    <!-- Price -->
+    <ng-container matColumnDef="retailPrice">
+      <th mat-header-cell *matHeaderCellDef>Price</th>
+      <td mat-cell *matCellDef="let product">${{ product.retailPrice }}</td>
+    </ng-container>
+
+    <!-- Actions -->
+    <ng-container matColumnDef="actions">
+      <th mat-header-cell *matHeaderCellDef>Actions</th>
+      <td mat-cell *matCellDef="let product">
+        <button mat-button color="primary" (click)="addToCart(product)">Add to Cart</button>
+        <button mat-button color="accent" (click)="addToWatchlist(product)">Watchlist</button>
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="view">
+  <th mat-header-cell *matHeaderCellDef>View</th>
+  <td mat-cell *matCellDef="let product">
+    <button mat-button color="warn" [routerLink]="['/product-detail', product.productId]">
+      View
+    </button>
+  </td>
+</ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+  </table>
+  </div>
+</div>
+

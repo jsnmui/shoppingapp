@@ -1,0 +1,63 @@
+<div class="container mt-4" *ngIf="productForm">
+  <h2>Edit Product</h2>
+  <form [formGroup]="productForm" (ngSubmit)="onSubmit()">
+
+    <!-- Name -->
+    <div class="mb-3">
+      <label>Name</label>
+      <input formControlName="name" class="form-control"
+             [ngClass]="{ 'is-invalid': productForm.get('name')?.invalid && productForm.get('name')?.touched }" />
+      <div class="text-danger" *ngIf="productForm.get('name')?.hasError('required') && productForm.get('name')?.touched">
+        Name is required.
+      </div>
+    </div>
+
+    <!-- Description -->
+    <div class="mb-3">
+      <label>Description</label>
+      <textarea formControlName="description" class="form-control"></textarea>
+    </div>
+
+    <!-- Retail Price -->
+    <div class="mb-3">
+      <label>Retail Price</label>
+      <input type="number" formControlName="retailPrice" class="form-control"
+             [ngClass]="{ 'is-invalid': productForm.get('retailPrice')?.invalid && productForm.get('retailPrice')?.touched }" />
+      <div class="text-danger" *ngIf="productForm.get('retailPrice')?.hasError('required') && productForm.get('retailPrice')?.touched">
+        Retail price is required.
+      </div>
+      <div class="text-danger" *ngIf="productForm.get('retailPrice')?.hasError('min') && productForm.get('retailPrice')?.touched">
+        Retail price cannot be negative.
+      </div>
+    </div>
+
+    <!-- Wholesale Price -->
+    <div class="mb-3">
+      <label>Wholesale Price</label>
+      <input type="number" formControlName="wholesalePrice" class="form-control"
+             [ngClass]="{ 'is-invalid': productForm.get('wholesalePrice')?.invalid && productForm.get('wholesalePrice')?.touched }" />
+      <div class="text-danger" *ngIf="productForm.get('wholesalePrice')?.hasError('required') && productForm.get('wholesalePrice')?.touched">
+        Wholesale price is required.
+      </div>
+      <div class="text-danger" *ngIf="productForm.get('wholesalePrice')?.hasError('min') && productForm.get('wholesalePrice')?.touched">
+        Wholesale price cannot be negative.
+      </div>
+    </div>
+
+    <!-- Quantity -->
+    <div class="mb-3">
+      <label>Quantity</label>
+      <input type="number" formControlName="quantity" class="form-control"
+             [ngClass]="{ 'is-invalid': productForm.get('quantity')?.invalid && productForm.get('quantity')?.touched }" />
+      <div class="text-danger" *ngIf="productForm.get('quantity')?.hasError('required') && productForm.get('quantity')?.touched">
+        Quantity is required.
+      </div>
+      <div class="text-danger" *ngIf="productForm.get('quantity')?.hasError('min') && productForm.get('quantity')?.touched">
+        Quantity must be at least 0.
+      </div>
+    </div>
+
+    <button class="btn btn-primary" type="submit" [disabled]="productForm.invalid">Save</button>
+    <button class="btn btn-secondary" routerLink="/admin-products">Cancel</button>
+  </form>
+</div>

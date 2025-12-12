@@ -1,0 +1,15 @@
+<div class="container mt-4">
+  <h4>Top 3 Frequently Purchased Products</h4>
+  <ul>
+    <li *ngFor="let product of frequentProducts">
+      {{ product.productName }} (Purchased {{ product.quantity }} times)
+    </li>
+  </ul>
+
+  <h4 class="mt-4">Top 3 Recently Purchased Products</h4>
+  <ul>
+    <li *ngFor="let product of recentProducts">
+      {{ product.productName }} (Last purchased on {{ product.datePurchased | date:'short' }})
+    </li>
+  </ul>
+</div>
