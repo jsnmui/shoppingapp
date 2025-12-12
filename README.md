@@ -8,6 +8,21 @@ It consists of an **Angular 14 frontend** and a **Spring Boot backend** split in
 The application supports both **users (buyers)** and **admins (sellers)** with secure authentication, order management, and product management.
 
 ---
+### Architecture Overview
+shoppingapp/
+│
+├── SpringSecurityAuth       (Authentication Service – JWT)
+├── SpringSecurityContent    (Content Service – Products & Orders)
+└── frontend/shopping-app    (Angular 14 Frontend)
+
+Services
+Service	Description
+Auth Service	Handles login, signup, JWT generation
+Content Service	Product management, orders, watchlist, admin tools
+Frontend	Angular UI for users/admin
+
+Each backend service is deployed separately.
+---
 
 ## Technologies Used
 
@@ -142,7 +157,14 @@ The application supports both **users (buyers)** and **admins (sellers)** with s
    ```
 
 4. Use Postman (or any REST client) to test the endpoints.
+---
+### Angular Frontend
 
+  ```bash
+  cd frontend/shopping-app
+  npm install
+  ng serve
+  ```
 
 ---
 
@@ -153,6 +175,27 @@ The application supports both **users (buyers)** and **admins (sellers)** with s
     /content-service
 /frontend
     /shopping-app
+```
+
+---
+## Live Deployment Link
+
+**Frontend (Angular App)**
+
+**User/Admin Login Page:**
+https://shoppingapp-frontend-g8e2.onrender.com/login
+
+**Test Accounts**
+
+**Admin Account**
+```
+username: admin
+password: 123456
+```
+**User Account**
+```
+username: user
+password: 123456
 ```
 
 ---
