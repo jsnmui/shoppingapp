@@ -9,17 +9,18 @@ The application supports both **users (buyers)** and **admins (sellers)** with s
 
 ---
 ### Architecture Overview
+```
 shoppingapp/
 │
 ├── SpringSecurityAuth       (Authentication Service – JWT)
 ├── SpringSecurityContent    (Content Service – Products & Orders)
 └── frontend/shopping-app    (Angular 14 Frontend)
+```
 
-Services
-Service	Description
-Auth Service	Handles login, signup, JWT generation
-Content Service	Product management, orders, watchlist, admin tools
-Frontend	Angular UI for users/admin
+**Services**
+- Auth Service:	Handles login, signup, JWT generation
+- Content Service:	Product management, orders, watchlist, admin tools
+- Frontend:	Angular UI for users/admin
 
 Each backend service is deployed separately.
 ---
