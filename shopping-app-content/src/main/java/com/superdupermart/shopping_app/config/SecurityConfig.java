@@ -35,7 +35,7 @@ public class SecurityConfig {
                 .csrf().disable()
                 .addFilterAfter(jwtFilter, UsernamePasswordAuthenticationFilter.class)
                 .authorizeHttpRequests()
-                .requestMatchers("/public/**", "/login", "/signup").permitAll()
+                .requestMatchers("/health").permitAll()
                 .anyRequest().authenticated()
                 .and()
                 .exceptionHandling()
