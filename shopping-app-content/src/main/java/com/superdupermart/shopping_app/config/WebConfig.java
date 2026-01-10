@@ -14,7 +14,7 @@ public class WebConfig {
             @Override
             public void addCorsMappings(CorsRegistry registry) {
                 registry.addMapping("/**")
-                        .allowedOrigins("http://localhost:4200","https://shoppingapp-frontend-g8e2.onrender.com" )
+                        .allowedOrigins("http://localhost:4200","https://shoppingapp-frontend-g8e2.onrender.com","https://shoppingfront.netlify.app" )
                         .allowedMethods("GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS")
                         .allowedHeaders("*")
                         .allowCredentials(true);
